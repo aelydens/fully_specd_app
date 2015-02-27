@@ -27,13 +27,13 @@ describe Book do
     expect(book.errors[:date]).to eq(["can't be blank"])
   end
 
-  xit 'it is valid without a modern date' do
+  xit 'it is valid if it\'s date published is after 1950' do
     book = Book.create(title: "The Corrections", author: "Jonathan Franzen", date: 2001)
     book.valid?
     expect(book).to be_valid
   end
 
-  xit 'is invalid if it is not modern (published post 1950)' do
+  xit 'is invalid if it it\'s date published is before 1950' do
     book = Book.create(title: "Macbeth", author: "Shakespeare", date: 1606)
     book.valid?
     expect(book.errors[:date]).to eq("Please choose a book published after 1950")
