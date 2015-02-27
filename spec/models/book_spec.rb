@@ -25,6 +25,7 @@ describe Book do
     book = Book.create(title: "Macbeth", author: "Old Shakespeare")
     book.valid?
     expect(book.errors[:date]).to eq(["can't be blank"])
+  end
 
   xit 'it is valid without a modern date' do
     book = Book.create(title: "The Corrections", author: "Jonathan Franzen", date: 2001)
